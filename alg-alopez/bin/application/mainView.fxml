@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="BorderPane" layoutX="0.0" layoutY="0.0" prefHeight="697.0" prefWidth="1012.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.mainController">
+  <bottom>
+    <TextArea fx:id="txtareaOutputData" prefHeight="165.99990000000253" prefWidth="1012.0" wrapText="true" />
+  </bottom>
+  <center>
+    <LineChart fx:id="lchartGraphics" style="-fx-effect: null;">
+      <xAxis>
+        <CategoryAxis label="Número valor" side="BOTTOM" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis label="Tiempo (ms)" side="LEFT" />
+      </yAxis>
+    </LineChart>
+  </center>
+  <left>
+    <Pane prefHeight="496.0" prefWidth="250.0" style="">
+      <children>
+        <RadioButton fx:id="rbtnEnterData" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showEElements" selected="true" text="Introducir datos">
+          <toggleGroup>
+            <ToggleGroup fx:id="x1" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="rbtnReadFile" layoutX="14.0" layoutY="44.0" mnemonicParsing="false" onAction="#showRElements" text="Leer archivo de datos" toggleGroup="$x1" />
+        <TextArea id="txtareaOutputData" fx:id="txtareaInputData" disable="false" layoutX="0.0" layoutY="114.0" prefHeight="101.0" prefWidth="250.0" wrapText="true" />
+        <Button fx:id="btnRestart" layoutX="7.0" layoutY="225.0" mnemonicParsing="false" onAction="#restart" text="Reiniciar" />
+        <Button fx:id="btnChoose" layoutX="7.0" layoutY="186.0" mnemonicParsing="false" onAction="#fileChoose" prefWidth="91.0" text="Archivo" visible="false" />
+        <TextField fx:id="txtFilePath" disable="false" layoutX="7.0" layoutY="154.0" prefWidth="194.99990000000253" visible="false" />
+        <Label fx:id="lblInput" layoutX="14.0" layoutY="88.0" text="Entrada" />
+        <Label id="txtStatus" fx:id="lblStatus" layoutX="14.0" layoutY="279.0" text="Esperando Instrucción">
+          <font>
+            <Font size="11.0" />
+          </font>
+        </Label>
+      </children>
+    </Pane>
+  </left>
+  <right>
+    <Pane prefHeight="496.0" prefWidth="228.0" style="">
+      <children>
+        <TextField fx:id="txtTime" disable="false" layoutX="14.0" layoutY="54.0" prefWidth="172.0" style="" />
+        <TextField fx:id="txtSteps" disable="false" layoutX="14.0" layoutY="116.0" prefWidth="172.0" style="" visible="true">
+          <stylesheets>
+            <URL value="@../../style.css" />
+          </stylesheets>
+        </TextField>
+        <Label layoutX="11.0" layoutY="39.0" prefWidth="102.9998779296875" text="Tiempo (ms):" />
+        <Label layoutX="14.0" layoutY="101.0" text="Número de pasos:" visible="true" />
+      </children>
+    </Pane>
+  </right>
+  <stylesheets>
+    <URL value="@../../style.css" />
+  </stylesheets>
+  <top>
+    <MenuBar style="">
+      <menus>
+        <Menu mnemonicParsing="false" text="Opciones">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Salir" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Algoritmos">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#primeFactors" text="Fact. Primos" />
+            <MenuItem mnemonicParsing="false" onAction="#primeNumbers" text="Num. Primos" />
+            <MenuItem mnemonicParsing="false" onAction="#newtonMethod" text="Newton" />
+            <MenuItem mnemonicParsing="false" onAction="#biseccMethod" text="Bisección" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Ordenamiento">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#insertionSort" text="Insertion" />
+            <MenuItem mnemonicParsing="false" onAction="#selectionSort" text="Selection" />
+            <MenuItem mnemonicParsing="false" onAction="#bubbleSort" text="Bubble" />
+            <MenuItem mnemonicParsing="false" onAction="#heapSort" text="Heap" />
+            <MenuItem mnemonicParsing="false" onAction="#mergeSort" text="Merge" />
+            <MenuItem mnemonicParsing="false" onAction="#quickSort" text="Quick" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Búsqueda">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#alea" text="Genera Aleatorios" />
+            <MenuItem mnemonicParsing="false" onAction="#search" text="Búsqueda" />
+            <MenuItem mnemonicParsing="false" onAction="#binarySearch" text="Búsqueda Árbol Binario" />
+            <MenuItem mnemonicParsing="false" onAction="#createGraph" text="Grafo" />
+          </items>
+        </Menu>
+      </menus>
+      <Menu mnemonicParsing="false" text="Aproximación">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#calcPi" text="Francois Viete Pi" />
+            <MenuItem mnemonicParsing="false" onAction="#calcHorner" text="Hörner" />
+            <MenuItem mnemonicParsing="false" onAction="#calcNHorner" text="Newton-Hörner" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Factorización">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#LUMethod" text="LU Method" />
+            <MenuItem mnemonicParsing="false" onAction="#QRMethod" text="QR Method" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Matrices">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#StrassenMethod" text="Strassen" />
+          </items>
+        </Menu>
+    </MenuBar>
+  </top>
+</BorderPane>

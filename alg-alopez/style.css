@@ -1,0 +1,81 @@
+
+.text-input > .scroll-pane:disabled {
+    -fx-opacity: 1;
+}
+
+/*Button*/
+.button {
+	-fx-background-radius: 10px;
+}
+
+/*TextField*/
+.text-field {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.text-field:focused {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+/*TextArea*/
+.text-area {
+	-fx-background-color: #a9a9a9 , white , white;
+    -fx-font-family: Consolas;
+    -fx-font-size: 15;
+    -fx-text-fill: #ffffff;
+    -fx-display-caret:true;
+}
+
+.text-area .content {
+    -fx-background-color: #000000;
+}
+
+/*MenuBar*/
+.menu-bar { 
+	-fx-background-color: black;
+}
+
+.menu .label { 
+	-fx-text-fill: white;
+}
+/*
+.menu:hover {
+    -fx-background-color: #bc784e;
+}*/
+
+.menu-item .label {
+    -fx-text-fill: white;
+}
+
+.menu-item:focused {
+     -fx-background-color: darkgray;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: blue;
+}
+
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+/*Pane*/
+.pane {
+    -fx-background-color: red;
+    -fx-border-color: black;
+}
+
+/*LineGraph*/
+.chart-series-line {    
+    -fx-stroke-width: 1px;
+    -fx-effect: null;
+}
+ 
+.default-color0.chart-series-line { -fx-stroke: #e9967a; }
+.default-color0.chart-line-symbol { -fx-background-color: #e9967a, white; }
